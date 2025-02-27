@@ -34,9 +34,20 @@ Default output format: json
   sam build
 
 デプロイ
-  sam deplpy
+　sam deplpy
+
+デプロイ設定を変更したい場合
+　sam deploy --guided
 ```
 
 ### エンドポイント確認方法 下記２パターン
 - ⓵ sam list endpoints --stack-name [samconfig.tomlのstack_name]
 - ⓶ AWS マネジメントコンソール（API Gatewayのステージ）で確認
+
+
+### 各種ファイル説明
+- template.yaml：インフラ構築するテンプレート
+
+- samconfig.toml：デプロイ設定のテンプレート
+  　これがあると ```sam deplpy``` のみでok
+  
