@@ -1,0 +1,30 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  FastApiApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Dev
+
+  FastApiFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: .
+      Handler: main.handler
+      Runtime: python3.12
+      MemorySize: 512
+      Timeout: 30
+      Events:
+        RootApi:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FastApiApi
+            Path: /
+            Method: ANY
+        ApiGatewayProxy:
+          Type: Api
+          Properties:
+            RestApiId: !Ref FastApiApi
+            Path: /{proxy+}
+            Method: ANY
