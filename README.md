@@ -34,7 +34,7 @@ Default output format: json
   sam build
 
 デプロイ
-　sam deplpy
+　sam deploy
 
 デプロイ設定を変更したい場合
 　sam deploy --guided
@@ -49,5 +49,5 @@ Default output format: json
 - template.yaml：インフラ構築するテンプレート
 
 - samconfig.toml：デプロイ設定のテンプレート
-  　これがあると ```sam deplpy``` のみでok
+  　これがあると ```sam deploy``` のみでok
   
